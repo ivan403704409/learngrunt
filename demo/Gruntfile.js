@@ -48,6 +48,20 @@ module.exports =function (grunt) {
 			}
 		},
 
+		//压缩图片
+		imagemin: {
+			static: {
+				files: [
+					{
+						expand: true,
+						cwd: path.src,
+						src: 'images/**/*.{jpg,png,gif}',
+						dest: path.dest
+					}
+				]
+			}
+		},
+
 		//清除文件
 		clean: {
 			all: {
@@ -65,6 +79,6 @@ module.exports =function (grunt) {
 
 	});
 
-	grunt.registerTask('build',['copy', 'cssmin', 'uglify']);
+	grunt.registerTask('build',['copy', 'cssmin', 'uglify', 'imagemin']);
 
 };
